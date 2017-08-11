@@ -1,0 +1,26 @@
+{
+  "name": "Twitter Replies Counter",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "It helps you count replies from a tweet",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "browser_action": {
+    "default_icon": "icons/icon19.png"
+  },
+  "background": {
+     "persistent": false,
+     "scripts": ["background.js"]
+   },
+   "content_scripts": [{
+     "run_at": "document_start",
+     "matches": ["*://*.twitter.com/*"],
+     "js": [
+       "lib/jquery.min.js",
+       "content.js"
+     ]
+   }]
+}
